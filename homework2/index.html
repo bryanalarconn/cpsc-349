@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <title>Movie Explorer</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+</head>    
 <body>
-    <!-- ToDO -->
+    <header>
+        <p class="title">Movie Explorer</p>
+    </header>
+    <div class="search">
+        <input type="text" id="search-input" placeholder="Search for a movie..."/>
+        <button id="search-btn">Search</button>
+    </div>
+    <main class="container">
+        <div id="movie-list" class="movie-list"></div>
+        <div id="buttons" class="page-nav">
+            <button id="prev">Previous</button>
+            <p id="page">Page 1 of ?</p>
+            <button id="next">Next</button>
+        </div>
+
+        
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
