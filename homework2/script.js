@@ -12,7 +12,6 @@ const pageIndicator = document.getElementById("page");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next")
 const searchInput = document.getElementById("search-input");
-const searchBtn = document.getElementById("search-btn");
 
 async function getData(page = 1) {
      const endpoint = currentQuery
@@ -72,11 +71,7 @@ nextBtn.addEventListener("click", ()=>{
         getData(currentPage);
     }
 });
-searchBtn.addEventListener("click", () => {
-  currentQuery = searchInput.value.trim();
-  currentPage = 1;
-  getData(1);
-});
+
 searchInput.addEventListener("input", () => {
   currentQuery = searchInput.value.trim();
   currentPage = 1;

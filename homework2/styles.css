@@ -12,19 +12,27 @@ body {
     font-weight: bold;
     color: white;
 }
-.search-sort {
+.search-bar {
     background-color: #33485e;
     padding: 20px ;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-.search-sort input {
-    padding: 8px 5px;
+.search-bar input, 
+.search-bar select {
+  flex: 1; 
+  max-width: 170px;
+  padding: 8px 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
 
-}
-.search-sort button {
-      padding: 8px 5px;
-
-}
 
 .movie-list {
     padding-top: 20px;

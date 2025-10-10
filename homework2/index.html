@@ -9,10 +9,18 @@
     <header>
         <p class="title">Movie Explorer</p>
     </header>
-    <div class="search-sort">
-        <input type="text" id="search-input" placeholder="Search for a movie..."/>
-        <button id="search-btn">Search</button>
-
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search for a movie..."/>
+        <select id="sort-select">
+            <option value="">Sort By</option>
+            <option value="rating-desc">Rating (High → Low)</option>
+            <option value="rating-asc">Rating (Low → High)</option>
+            <option value="date-desc">Release Date (New → Old)</option>
+            <option value="date-asc">Release Date (Old → New)</option>
+        </select>
     </div>
     <main class="container">
         <div id="movie-list" class="movie-list"></div>
