@@ -12,10 +12,18 @@ body {
     font-weight: bold;
     color: white;
 }
-.search {
+.search-sort {
     background-color: #33485e;
     padding: 20px ;
     text-align: center;
+}
+.search-sort input {
+    padding: 8px 5px;
+
+}
+.search-sort button {
+      padding: 8px 5px;
+
 }
 
 .movie-list {
