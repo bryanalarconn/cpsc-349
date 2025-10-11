@@ -5,6 +5,7 @@ header {
 body {
     background-color: #2b3c4e;  
     font-family: Arial, sans-serif;
+    margin:0;
 }
 
 .title {

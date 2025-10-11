@@ -6,12 +6,34 @@ const IMG_BASE = "https://image.tmdb.org/t/p/w200";
 let currentPage = 1;
 let totalPages = 1;
 let currentQuery = "";
+let lastMovies = [];
 
 const list = document.getElementById("movie-list");
 const pageIndicator = document.getElementById("page");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next")
 const searchInput = document.getElementById("search-input");
+const sortSelect = document.getElementById("sort-select")
+
+function sortMovies(movies, sortValue) {
+    if(!movies || !movies.length) return [];
+
+    switch(sortValue) {
+        case "rating-asc":
+            return [...movies].sort((a,b)=>(a.vote_average || 0) - (b.vote_average || 0));
+        case "rating-desc":
+            return [...movies].sort((a,b)=>(b.vote_average || 0) - (a.vote_average || 0));
+        case "date-asc":
+            return [...movies].sort((a,b)=> 
+                new Date(a.release_date || "1900-01-01") - new Date(b.release_date || "1900-01-01"));
+        case "date-desc":
+            return [...movies].sort((a,b)=> 
+                new Date(b.release_date || "1900-01-01") - new Date(a.release_date || "1900-01-01"));
+
+        default:
+            return movies;
+    }
+}
 
 async function getData(page = 1) {
      const endpoint = currentQuery
@@ -24,10 +46,14 @@ async function getData(page = 1) {
 
         console.log(data);
         console.log(data.results);
-
-        totalPages = data.total_pages;
+        
+        totalPages = data.total_pages || 1;
         currentPage = page;
-        renderMovies(data.results);
+        lastMovies = data.results || [];
+
+        const sorted = sortMovies(lastMovies, sortSelect.value);
+        renderMovies(sorted);
+
         updatePageIndicator();
     } catch (error) {
         console.error("Error:", error);
@@ -58,6 +84,7 @@ function updatePageIndicator(){
     prevBtn.disabled = currentPage == 1;
     nextBtn.disabled = currentPage == totalPages
 }
+
 prevBtn.addEventListener("click", ()=>{
     if(currentPage > 1){
         currentPage--;
@@ -83,5 +110,9 @@ searchInput.addEventListener("input", () => {
   }
 });
 
+sortSelect.addEventListener("change", () => {
+  const sorted = sortMovies(lastMovies, sortSelect.value);
+  renderMovies(sorted);
+});
     
 getData(currentPage);
