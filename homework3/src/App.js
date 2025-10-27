@@ -67,7 +67,8 @@ function MovieExplorer() {
   };
 
   const handleSearchInput = (e) => {
-    setCurrentQuery(e.target.value);
+    const query = e.target.value.trim();
+    setCurrentQuery(query);
     getData(1);
   };
 
@@ -78,7 +79,6 @@ function MovieExplorer() {
   useEffect(() => {
     getData(1);
   }, []); 
-
 
 
   const sortedMovies = sortMovies(movies, sortValue);
