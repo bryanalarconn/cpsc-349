@@ -86,8 +86,7 @@ function MovieExplorer() {
   return (  
     <div>
       <h1>Movie Explorer</h1>
-      
-      {/* Search input */}
+    
       <input 
         id="search-input"
         type="text"
@@ -95,7 +94,6 @@ function MovieExplorer() {
         onChange={handleSearchInput}
       />
 
-      {/* Sort dropdown */}
       <select id="sort-select" onChange={handleSortChange} value={sortValue}>
             <option value="">Sort By</option>
             <option value="rating-desc">Rating (Desc)</option>
@@ -105,7 +103,6 @@ function MovieExplorer() {
        
       </select>
 
-      {/* Movie list - YOUR TASK! */}
       <div id="movie-list">
         {/* TODO: Use sortedMovies.map() to create movie cards */}
         {/* Remember each card needs a unique 'key' prop (use movie.id) */}
