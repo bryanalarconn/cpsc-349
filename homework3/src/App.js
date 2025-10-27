@@ -85,25 +85,27 @@ async function getData(page = 1, query = currentQuery) {
 
   return (  
     <div>
-      <h1>Movie Explorer</h1>
-    
-      <input 
-        id="search-input"
-        type="text"
-        placeholder="Search movies..."
-        onChange={handleSearchInput}
-      />
+      <header>
+        <h1 className="title">Movie Explorer</h1>
+      </header>
+      <div className="search-bar"> 
+        <input 
+          id="search-input"
+          type="text"
+          placeholder="Search movies..."
+          onChange={handleSearchInput}
+        />
+        <select id="sort-select" onChange={handleSortChange} value={sortValue}>
+              <option value="">Sort By</option>
+              <option value="rating-desc">Rating (Desc)</option>
+              <option value="rating-asc">Rating (Asc)</option>
+              <option value="date-desc">Release Date (Desc)</option>
+              <option value="date-asc">Release Date (Asc)</option>
+        
+        </select>
+      </div>
 
-      <select id="sort-select" onChange={handleSortChange} value={sortValue}>
-            <option value="">Sort By</option>
-            <option value="rating-desc">Rating (Desc)</option>
-            <option value="rating-asc">Rating (Asc)</option>
-            <option value="date-desc">Release Date (Desc)</option>
-            <option value="date-asc">Release Date (Asc)</option>
-       
-      </select>
-
-      <div id="movie-list">
+      <div className="movie-list">
         {sortedMovies.length === 0 ? (
           <p>No results found.</p>
         ) : (
@@ -117,8 +119,7 @@ async function getData(page = 1, query = currentQuery) {
         )))}
       </div>
 
-      {/* Pagination */}
-      <div>
+      <div className="page-nav">
         <button id="prev" onClick={handlePrevClick} disabled={currentPage === 1}>
           Previous
         </button>
