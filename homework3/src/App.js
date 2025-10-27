@@ -33,9 +33,9 @@ function MovieExplorer() {
       }
     }
 
-  async function getData(page = 1) {
-    const endpoint = currentQuery
-    ? `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(currentQuery)}&page=${page}`
+async function getData(page = 1, query = currentQuery) {
+  const endpoint = query 
+    ? `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(query)}&page=${page}`
     : `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`;
     try {
       const res = await fetch(endpoint);
@@ -69,7 +69,7 @@ function MovieExplorer() {
   const handleSearchInput = (e) => {
     const query = e.target.value.trim();
     setCurrentQuery(query);
-    getData(1);
+    getData(1, query);
   };
 
   const handleSortChange = (e) => {
@@ -104,8 +104,17 @@ function MovieExplorer() {
       </select>
 
       <div id="movie-list">
-        {/* TODO: Use sortedMovies.map() to create movie cards */}
-        {/* Remember each card needs a unique 'key' prop (use movie.id) */}
+        {sortedMovies.length === 0 ? (
+          <p>No results found.</p>
+        ) : (
+        sortedMovies.map(movie => (
+          <div key={movie.id} className="movie-card">
+            <img src={`${IMG_BASE}${movie.poster_path}`} alt={movie.title}/>
+            <h2>{movie.title}</h2>
+            <p>Release Date: {movie.release_date}</p>
+            <p>Rating: {movie.vote_average}</p>
+          </div>
+        )))}
       </div>
 
       {/* Pagination */}
