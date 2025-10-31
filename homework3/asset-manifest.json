@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cpsc-349/homework3/static/css/main.5498f628.css",
+    "main.js": "/cpsc-349/homework3/static/js/main.b63068b8.js",
+    "static/js/453.9f68fff1.chunk.js": "/cpsc-349/homework3/static/js/453.9f68fff1.chunk.js",
+    "index.html": "/cpsc-349/homework3/index.html",
+    "main.5498f628.css.map": "/cpsc-349/homework3/static/css/main.5498f628.css.map",
+    "main.b63068b8.js.map": "/cpsc-349/homework3/static/js/main.b63068b8.js.map",
+    "453.9f68fff1.chunk.js.map": "/cpsc-349/homework3/static/js/453.9f68fff1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5498f628.css",
+    "static/js/main.b63068b8.js"
+  ]
+}
