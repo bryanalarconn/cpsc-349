@@ -1,6 +1,6 @@
 {
   "name": "homework3",
-  "homepage": "https://bryanalarconn.github.io/cpsc-349",
+  "homepage": "https://bryanalarconn.github.io/cpsc-349/homework3",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,8 +19,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
+    "deploy": "gh-pages -d build -e homework3"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",
